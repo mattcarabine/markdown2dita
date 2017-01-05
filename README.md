@@ -141,3 +141,10 @@ titles:
     markdown = markdown2dita.Markdown(title_level=4)
     markdown(text)
     ```
+    
+If you find any issues not described above or have any feedback then please raise a GitHub issue and I will take a look!
+
+## Roadmap
+- **add tests**: the tool has been extensively tested using known markdown texts and visually inspecting them. It would be great if we could find a better way to validate that the dita generated is correct (perhaps converting from md -> html -> dita?)
+- **add ability to automatically parse metadata**: currently the page type is set to concept and the title/short description are not filled in. Would be good to do something like jekyll does and automatically parse the top block for metadata and use that to fill in the other parts of the dita output.
+- **add batch processing to CLI tool**: currently you have to parse each file one command at a time, this may be arduous for large migrations where there is a whole directory structure filled with markdown files to be converted. The CLI tool should be able to handle this when you give it a directory (possibly a `--recursive` option?)
