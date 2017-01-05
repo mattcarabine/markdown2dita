@@ -13,7 +13,7 @@ import sys
 
 import mistune
 
-__version__ = '0.1'
+__version__ = '0.3'
 __author__ = 'Matt Carabine <matt.carabine@gmail.com>'
 __all__ = ['Renderer', 'Markdown', 'markdown', 'escape']
 

@@ -2,7 +2,7 @@ from distutils.core import setup
 setup(
   name='markdown2dita',
   py_modules=['markdown2dita'],
-  version='0.1',
+  version='0.3',
   description='A markdown to dita-ot conversion tool written in pure python.',
   author='Matt Carabine',
   author_email='matt.carabines@gmail.com',
