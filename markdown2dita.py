@@ -205,7 +205,7 @@ def markdown(text, escape=True, **kwargs):
     return Markdown(escape=escape, **kwargs)(text)
 
 
-if __name__ == '__main__':
+def main():
     parsed_args = _parse_args(sys.argv[1:])
 
     if parsed_args.input_file:
@@ -226,3 +226,7 @@ if __name__ == '__main__':
             output_file.write(dita_output)
     else:
         print(dita_output)
+
+
+if __name__ == '__main__':
+    main()
