@@ -13,6 +13,10 @@ import sys
 
 import mistune
 
+__version__ = '0.1'
+__author__ = 'Matt Carabine <matt.carabine@gmail.com>'
+__all__ = ['Renderer', 'Markdown', 'markdown', 'escape']
+
 
 class Renderer(mistune.Renderer):
 
@@ -116,6 +120,9 @@ class Renderer(mistune.Renderer):
     def footnotes(self, text):
         return ''
 
+    def strikethrough(self, text):
+        return text
+
 class Markdown(mistune.Markdown):
 
     def __init__(self, renderer=None, inline=None, block=None, **kwargs):
@@ -134,7 +141,7 @@ class Markdown(mistune.Markdown):
         if output.startswith('</section>'):
             output = output[9:]
         else:
-            output = '<section>' + output
+            output = '<section>\n' + output
 
         output = """<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
@@ -142,8 +149,7 @@ class Markdown(mistune.Markdown):
 <title>{1}</title>
 <shortdesc>Enter the short description for this page here</shortdesc>
 <conbody>
-{2}
-</section>
+{2}</section>
 </conbody>
 </concept>""".format(page_id, title, output)
         return output
@@ -193,6 +199,11 @@ def _parse_args(args):
                         help='output file for the converted dita content.'
                              'If omitted, output is sent to stdout.')
     return parser.parse_args(args)
+
+
+def markdown(text, escape=True, **kwargs):
+    return Markdown(escape=escape, **kwargs)(text)
+
 
 if __name__ == '__main__':
     parsed_args = _parse_args(sys.argv[1:])
