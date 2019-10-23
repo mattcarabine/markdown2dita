@@ -7,7 +7,7 @@ setup(
   author='Matt Carabine',
   author_email='matt.carabines@gmail.com',
   license='BSD',
-  install_requires=['mistune==0.7.3'],
+  install_requires=['mistune==0.8.1'],
   url='https://github.com/mattcarabine/markdown2dita',
   download_url='https://github.com/peterldowns/mypackage/tarball/0.1',
   keywords=['markdown', 'dita', 'converter', 'writing'],
